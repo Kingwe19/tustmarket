@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kingwe.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="top.kingwe.domain.Goods">
+    <!--@mbg.generated-->
+    <!--@Table goods-->
+    <id column="goods_id" jdbcType="VARCHAR" property="goodsId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_description" jdbcType="VARCHAR" property="goodsDescription" />
+    <result column="goods_price" jdbcType="DOUBLE" property="goodsPrice" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="goods_hot" jdbcType="INTEGER" property="goodsHot" />
+    <result column="goods_recommend" jdbcType="INTEGER" property="goodsRecommend" />
+    <result column="goods_level" jdbcType="INTEGER" property="goodsLevel" />
+    <result column="goods_kinds" jdbcType="INTEGER" property="goodsKinds" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    goods_id, goods_name, goods_description, goods_price, user_id, goods_hot, goods_recommend, 
+    goods_level, goods_kinds
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where goods_id = #{goodsId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from goods
+    where goods_id = #{goodsId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top.kingwe.domain.Goods">
+    <!--@mbg.generated-->
+    insert into goods (goods_id, goods_name, goods_description, 
+      goods_price, user_id, goods_hot, 
+      goods_recommend, goods_level, goods_kinds
+      )
+    values (#{goodsId,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsDescription,jdbcType=VARCHAR}, 
+      #{goodsPrice,jdbcType=DOUBLE}, #{userId,jdbcType=INTEGER}, #{goodsHot,jdbcType=INTEGER}, 
+      #{goodsRecommend,jdbcType=INTEGER}, #{goodsLevel,jdbcType=INTEGER}, #{goodsKinds,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top.kingwe.domain.Goods">
+    <!--@mbg.generated-->
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="goodsDescription != null">
+        goods_description,
+      </if>
+      <if test="goodsPrice != null">
+        goods_price,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="goodsHot != null">
+        goods_hot,
+      </if>
+      <if test="goodsRecommend != null">
+        goods_recommend,
+      </if>
+      <if test="goodsLevel != null">
+        goods_level,
+      </if>
+      <if test="goodsKinds != null">
+        goods_kinds,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDescription != null">
+        #{goodsDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null">
+        #{goodsPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsHot != null">
+        #{goodsHot,jdbcType=INTEGER},
+      </if>
+      <if test="goodsRecommend != null">
+        #{goodsRecommend,jdbcType=INTEGER},
+      </if>
+      <if test="goodsLevel != null">
+        #{goodsLevel,jdbcType=INTEGER},
+      </if>
+      <if test="goodsKinds != null">
+        #{goodsKinds,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.kingwe.domain.Goods">
+    <!--@mbg.generated-->
+    update goods
+    <set>
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDescription != null">
+        goods_description = #{goodsDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null">
+        goods_price = #{goodsPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsHot != null">
+        goods_hot = #{goodsHot,jdbcType=INTEGER},
+      </if>
+      <if test="goodsRecommend != null">
+        goods_recommend = #{goodsRecommend,jdbcType=INTEGER},
+      </if>
+      <if test="goodsLevel != null">
+        goods_level = #{goodsLevel,jdbcType=INTEGER},
+      </if>
+      <if test="goodsKinds != null">
+        goods_kinds = #{goodsKinds,jdbcType=INTEGER},
+      </if>
+    </set>
+    where goods_id = #{goodsId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.kingwe.domain.Goods">
+    <!--@mbg.generated-->
+    update goods
+    set goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_description = #{goodsDescription,jdbcType=VARCHAR},
+      goods_price = #{goodsPrice,jdbcType=DOUBLE},
+      user_id = #{userId,jdbcType=INTEGER},
+      goods_hot = #{goodsHot,jdbcType=INTEGER},
+      goods_recommend = #{goodsRecommend,jdbcType=INTEGER},
+      goods_level = #{goodsLevel,jdbcType=INTEGER},
+      goods_kinds = #{goodsKinds,jdbcType=INTEGER}
+    where goods_id = #{goodsId,jdbcType=VARCHAR}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2020-11-23-->
+  <select id="findAllOrderByGoodsRecommendDesc" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from goods order by goods_recommend desc limit 12
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-11-23-->
+  <select id="selectAllByGoodsLevel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from goods
+    where goods_level>#{goodsLevel,jdbcType=INTEGER}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-11-23-->
+  <select id="selectAllByUserId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from goods
+        where user_id=#{userId,jdbcType=INTEGER}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-11-24-->
+  <select id="selectAllByGoodsName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from goods
+    where goods_name=#{goodsName,jdbcType=VARCHAR}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-11-24-->
+  <select id="findAllOrderByGoodsPriceAsc" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from goods order by goods_price asc limit 12
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-11-26-->
+  <select id="findUserIdByGoodsId" resultType="java.lang.Integer">
+        select user_id
+        from goods
+        where goods_id=#{goodsId,jdbcType=VARCHAR}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-12-01-->
+  <select id="selectAllByGoodsKinds" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from goods
+        where goods_kinds=#{goodsKinds,jdbcType=INTEGER}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-12-01-->
+  <select id="selectAllByGoodsNameLike" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from goods
+    where goods_name like concat('%',#{likeGoodsName,jdbcType=VARCHAR},'%')
+  </select>
+
+
+</mapper>

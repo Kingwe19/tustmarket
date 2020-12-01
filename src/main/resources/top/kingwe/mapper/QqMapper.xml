@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kingwe.mapper.QqMapper">
+  <resultMap id="BaseResultMap" type="top.kingwe.domain.Qq">
+    <!--@mbg.generated-->
+    <!--@Table qq-->
+    <result column="qq_id" jdbcType="INTEGER" property="qqId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    qq_id
+  </sql>
+  <insert id="insert" parameterType="top.kingwe.domain.Qq">
+    <!--@mbg.generated-->
+    insert into qq (qq_id)
+    values (#{qqId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="top.kingwe.domain.Qq">
+    <!--@mbg.generated-->
+    insert into qq
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="qqId != null">
+        qq_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="qqId != null">
+        #{qqId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

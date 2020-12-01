@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kingwe.mapper.WechatMapper">
+  <resultMap id="BaseResultMap" type="top.kingwe.domain.Wechat">
+    <!--@mbg.generated-->
+    <!--@Table wechat-->
+    <id column="wechat_id" jdbcType="INTEGER" property="wechatId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    wechat_id
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from wechat
+    where wechat_id = #{wechatId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="top.kingwe.domain.Wechat">
+    <!--@mbg.generated-->
+    insert into wechat (wechat_id)
+    values (#{wechatId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="top.kingwe.domain.Wechat">
+    <!--@mbg.generated-->
+    insert into wechat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wechatId != null">
+        wechat_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wechatId != null">
+        #{wechatId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

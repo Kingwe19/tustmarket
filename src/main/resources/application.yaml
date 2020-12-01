@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/market?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: kingwe
+    driver-class-name: com.mysql.jdbc.Driver
+    ConnectionTestQuery: SELECT 1
+mybatis:
+  type-aliases-package: top.kingwe.domain
+  mapper-locations: classpath:top.kingwe.mapper/*.xml
+server:
+  port: 8083
