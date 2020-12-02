@@ -21,5 +21,7 @@ public interface OrdersMapper {
 
     List<Orders> selectByUserId(@Param("userId")Integer userId);
 
+int deleteByGoodsId(@Param("goodsId")String goodsId);
+
 
 }

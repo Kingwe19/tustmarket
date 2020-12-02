@@ -8,6 +8,7 @@ import top.kingwe.domain.User;
 import top.kingwe.domain.Usercollection;
 import top.kingwe.mapper.GoodsMapper;
 import top.kingwe.mapper.GoodsphotoMapper;
+import top.kingwe.mapper.OrdersMapper;
 import top.kingwe.mapper.UsercollectionMapper;
 import top.kingwe.service.GoodsService;
 import top.kingwe.service.GoodsphotoService;
@@ -31,6 +32,9 @@ public class GoodsController {
 
     @Autowired
     private UsercollectionMapper usercollectionMapper;
+
+    @Autowired
+    private OrdersMapper ordersMapper;
 
 
     @GetMapping("/getRandomGoodsId")
@@ -94,6 +98,7 @@ public class GoodsController {
         map.put("code",i);
         usercollectionMapper.deleteByUserIdAndGoodsId(usercollection.getUserId(),usercollection.getGoodsId());
         goodsphotoService.delectByGoodsId(usercollection.getGoodsId());
+        ordersMapper.deleteByGoodsId(usercollection.getGoodsId());
         return map;
     }
 
